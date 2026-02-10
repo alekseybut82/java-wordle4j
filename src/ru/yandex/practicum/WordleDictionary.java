@@ -24,12 +24,12 @@ public class WordleDictionary {
         return this;
     }
 
-    public String getRandomWord(){
+    public String getRandomWord() {
         int random = RANDOM.nextInt(set.size());
         Iterator<String> iterator = set.iterator();
-        String result ="";
+        String result = "";
 
-        for (int i = 0; i <= random; i++ ) {
+        for (int i = 0; i <= random; i++) {
             result = iterator.next();
         }
         return result;
@@ -50,9 +50,9 @@ public class WordleDictionary {
 
     public void checkWord(String word) throws InputEmptyWordException, InvalidWordLengthException, NotOnlyRussiaLetterException {
         if (word.isEmpty()) throw new InputEmptyWordException("Вводить слово, состоящее из пробелов, нельзя.");
-        else if (word.length() != wordLength ) throw new InvalidWordLengthException("Длина слова дожна быть равна " + wordLength);
+        else if (word.length() != wordLength) throw new InvalidWordLengthException("Длина слова дожна быть равна " + wordLength);
 
-        for(int i =0; i < wordLength; i++) {
+        for (int i = 0; i < wordLength; i++) {
             if (word.charAt(i) < 'а' || word.charAt(i) > 'я')
                 throw new NotOnlyRussiaLetterException("Слово должно состоять только из русских букв = " + word.charAt(i));
         }
