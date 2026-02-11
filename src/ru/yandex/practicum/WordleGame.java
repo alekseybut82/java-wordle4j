@@ -108,8 +108,8 @@ public class WordleGame {
         if (currentStep != 0) {
 
             logger.println("Генерируем подсказку по условию: ");
-            logger.printf("индексы угаданных букв = %s, текущее слово = %s, букв нет в слове = %s, буквы есть в слове, но индекс не угадан = %s, предыдущие ответы = %s \n"
-                    , guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord, answers);
+            logger.printf("индексы угаданных букв = %s, текущее слово = %s, букв нет в слове = %s, буквы есть в слове, но индекс не угадан = %s, предыдущие ответы = %s \n",
+                    guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord, answers);
 
             if (candidates == null) candidates = new HashSet<>(dictionary.getWordSet());
             Iterator<String> iterator = candidates.iterator();
@@ -141,15 +141,15 @@ public class WordleGame {
 
     private boolean hasLettersAlreadyContain(String word) {
         for (Character ch: lettersContainedWord) {
-            if (word.indexOf(ch) == -1) {  return false;}
+            if (word.indexOf(ch) == -1)  return false;
         }
         return true;
     }
 
     public boolean matchAnalyzedWord(String checkWord) {
         logger.printf("Выполнение анализа слова \"%s\", начальные условия:\n", checkWord);
-        logger.printf("индексы угаданных букв = %s, буквы в слове на своих местах = %s, букв нет в слове = %s, буквы есть в слове (индекс не определен) = %s, предыдущие ответы = %s \n"
-                , guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord, answers);
+        logger.printf("индексы угаданных букв = %s, буквы в слове на своих местах = %s, букв нет в слове = %s, буквы есть в слове (индекс не определен) = %s, предыдущие ответы = %s \n",
+                guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord, answers);
         logger.println("Результат:");
         if (!checkWord.equals(hiddenWord)) {
             for (int i = 0; i < wordLength; i++) {
@@ -167,8 +167,8 @@ public class WordleGame {
                     lettersContainedWord.add(checkLetter);
                 }
             }
-            logger.printf("индексы угаданных букв = %s, буквы в слове на своих местах = %s, букв нет в слове = %s, буквы есть в слове (индекс не определен)= %s\n"
-                    , guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord);
+            logger.printf("индексы угаданных букв = %s, буквы в слове на своих местах = %s, букв нет в слове = %s, буквы есть в слове (индекс не определен)= %s\n",
+                    guessLetterPosition.toString(), stringResult,lettersNotContainedWord, lettersContainedWord);
             logger.println(visualResult);
             return false;
         } else {
