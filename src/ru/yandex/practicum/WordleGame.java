@@ -48,7 +48,6 @@ public class WordleGame {
         this.maxAttempts = maxAttempts;
         this.wordLength = wordLength;
         this.logger = logger;
-
     }
 
     public void chooseWordToHidden() {
@@ -61,10 +60,8 @@ public class WordleGame {
         for (char e: hiddenWord.toCharArray()) {
             hiddenWordCharSet.add(e);
         }
-
         //визуальное представление результата
         visualResult.setLength(wordLength);
-
         //слово с открытыми угаданными буквами
         stringResult.setLength(wordLength);
     }
@@ -86,8 +83,6 @@ public class WordleGame {
             dictionary.containsWord(inputWord);
         }
 
-
-
         answers.add(inputWord);
         currentStep++;
         logger.printf("%d попытка.", currentStep);
@@ -101,7 +96,6 @@ public class WordleGame {
             playerWin = false;
             return String.format("%s%s\nПопробуйте еще раз! Вы использователи все попытки", hintWord, visualResult.toString());
         } else return String.format("%s%s\nПродолжай и все получится!", hintWord, visualResult.toString());
-
     }
 
     public String hint() {

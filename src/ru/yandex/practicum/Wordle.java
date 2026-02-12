@@ -19,16 +19,13 @@ import java.util.Scanner;
     вывести состояние игры и конечный результат
  */
 public class Wordle {
-
     private static final String WORDS_FILE_NAME = "words_ru.txt";
     private static final Integer MAX_ATTAMPS = 6;
     private static final Integer WORD_LENGTH = 5;
     private static final String LOG_FILE_NAME = "log.txt";
 
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-
         try (
                 FileOutputStream fos = new FileOutputStream(LOG_FILE_NAME);
                 Writer charDecode = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
@@ -57,7 +54,6 @@ public class Wordle {
         } catch (Exception e) {
             System.out.println("\nНепредвиденная ошибка\n" + e.getMessage());
         }
-
     }
 
     private static void printInviteMessage() {
@@ -67,5 +63,4 @@ public class Wordle {
         System.out.printf("Обозначения: \"+\" - буква угадана, \"^\" - буква есть в слове, \"-\" - такой буквы нет слове\n", WORD_LENGTH);
         System.out.printf("Вводи свои варианты из %d букв\n", WORD_LENGTH);
     }
-
 }
